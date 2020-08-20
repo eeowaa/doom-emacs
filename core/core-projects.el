@@ -188,6 +188,7 @@ And if it's a function, evaluate it."
                                concat " --glob "
                                concat (shell-quote-argument (concat "!" dir)))
                       (if IS-WINDOWS " --path-separator /")))
+             ;; XXX: Use 'find' as last result
              ("find . -type f -print0")))))
 
   (defadvice! doom--projectile-default-generic-command-a (orig-fn &rest args)

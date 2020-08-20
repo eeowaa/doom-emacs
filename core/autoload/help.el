@@ -627,22 +627,21 @@ config blocks in your private config."
         query
       (read-string prompt query 'git-grep query))))
 
-(defvar counsel-rg-base-command)
+(defvar counsel-ag-base-command)
 (defun doom--help-search (dirs query prompt)
-  ;; REVIEW Replace with deadgrep
-  (unless (executable-find "rg")
-    (user-error "Can't find ripgrep on your system"))
-  (if (fboundp 'counsel-rg)
-      (let ((counsel-rg-base-command
-             (if (stringp counsel-rg-base-command)
-                 (format counsel-rg-base-command
+  (unless (executable-find "ag")
+    (user-error "Can't find ag on your system"))
+  (if (fboundp 'counsel-ag)
+      (let ((counsel-ag-base-command
+             (if (stringp counsel-ag-base-command)
+                 (format counsel-ag-base-command
                          (concat "%s " (mapconcat #'shell-quote-argument dirs " ")))
-               (append counsel-rg-base-command dirs))))
-        (counsel-rg query nil "-Lz" prompt))
+               (append counsel-ag-base-command dirs))))
+        (counsel-ag query nil "--follow --search-zip" prompt))
     ;; TODO Add helm support?
     (grep-find
      (string-join
-      (append (list "rg" "-L" "--search-zip" "--no-heading" "--color=never"
+      (append (list "ag" "--follow" "--search-zip" "--noheading" "--nocolor"
                     (shell-quote-argument query))
               (mapcar #'shell-quote-argument dirs))
       " "))))

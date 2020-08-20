@@ -126,7 +126,7 @@ Dictionary.app behind the scenes to get definitions.")
   :commands dumb-jump-result-follow
   :config
   (setq dumb-jump-default-project doom-emacs-dir
-        dumb-jump-prefer-searcher 'rg
+        dumb-jump-prefer-searcher 'ag
         dumb-jump-aggressive nil
         dumb-jump-selector
         (cond ((featurep! :completion ivy)  'ivy)

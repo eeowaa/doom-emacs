@@ -254,7 +254,7 @@ The point of this is to avoid Emacs locking up indexing massive file trees."
 
 ;;;###autoload
 (cl-defun +ivy-file-search (&key query in all-files (recursive t) prompt args)
-  "Conduct a file search using ripgrep.
+  "Conduct a file search using ag.
 
 :query STRING
   Determines the initial input to search for.
@@ -264,17 +264,17 @@ The point of this is to avoid Emacs locking up indexing massive file trees."
 :recursive BOOL
   Whether or not to search files recursively from the base directory."
   (declare (indent defun))
-  (unless (executable-find "rg")
-    (user-error "Couldn't find ripgrep in your PATH"))
+  (unless (executable-find "ag")
+    (user-error "Couldn't find ag in your PATH"))
   (require 'counsel)
-  (let* ((this-command 'counsel-rg)
+  (let* ((this-command 'counsel-ag)
          (project-root (or (doom-project-root) default-directory))
          (directory (or in project-root))
-         (args (concat (if all-files " -uu")
-                       (unless recursive " --maxdepth 1")
+         (args (concat (if all-files " --all-text --skip-vcs-ignores --hidden")
+                       (unless recursive " --norecurse")
                        " " (mapconcat #'shell-quote-argument args " "))))
     (setq deactivate-mark t)
-    (counsel-rg
+    (counsel-ag
      (or query
          (when (doom-region-active-p)
            (replace-regexp-in-string
@@ -288,7 +288,7 @@ The point of this is to avoid Emacs locking up indexing massive file trees."
             (rxt-quote-pcre (doom-thing-at-point-or-region)))))
      directory args
      (or prompt
-         (format "rg%s [%s]: "
+         (format "ag%s [%s]: "
                  args
                  (cond ((equal directory default-directory)
                         "./")
@@ -298,7 +298,7 @@ The point of this is to avoid Emacs locking up indexing massive file trees."
 
 ;;;###autoload
 (defun +ivy/project-search (&optional arg initial-query directory)
-  "Performs a live project search from the project root using ripgrep.
+  "Performs a live project search from the project root using ag.
 
 If ARG (universal argument), include all files, even hidden or compressed ones,
 in the search."
@@ -372,7 +372,7 @@ If ARG (universal argument), include all files, even hidden or compressed ones."
 
 ;;;###autoload
 (defun +ivy/git-grep-other-window-action ()
-  "Open the current counsel-{ag,rg,git-grep} candidate in other-window."
+  "Open the current counsel-{ag,git-grep} candidate in other-window."
   (interactive)
   (ivy-set-action #'+ivy-git-grep-other-window-action)
   (setq ivy-exit 'done)

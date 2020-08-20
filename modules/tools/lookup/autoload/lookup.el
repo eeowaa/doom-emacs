@@ -214,7 +214,7 @@ This can be passed nil as its second argument to unset handlers for MODES. e.g.
 
 (defun +lookup-dumb-jump-backend-fn (_identifier)
   "Look up the symbol at point (or selection) with `dumb-jump', which conducts a
-project search with ag, rg, pt, or git-grep, combined with extra heuristics to
+project search with ag, pt, or git-grep, combined with extra heuristics to
 reduce false positives.
 
 This backend prefers \"just working\" over accuracy."

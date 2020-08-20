@@ -112,8 +112,9 @@ in."
                      file (/ size 1024 1024.0))
               (explain! "Consider deleting it from your system (manually)"))))
 
-        (unless (executable-find "rg")
-          (error! "Couldn't find the `rg' binary; this a hard dependecy for Doom, file searches may not work at all"))
+        ;; XXX: The whole point of this fork is to remove the 'rg' dependency
+        (unless (executable-find "ag")
+          (error! "Couldn't find the `ag' binary; this a hard dependecy for eeowaa's Doom, file searches may not work at all"))
 
         (unless (ignore-errors (executable-find doom-projectile-fd-binary))
           (warn! "Couldn't find the `fd' binary; project file searches will be slightly slower"))
