@@ -857,7 +857,7 @@ But which do you choose?
   rather than a terminal emulator. Due to its simplicity, you're less likely to
   encounter edge cases (e.g. against your shell config), but it has the smallest
   feature set. It also won't work with TUI programs like htop or vim.
-+ =term= is Emacs' built-in terminal emulator. Term runs a shell and understand
++ =term= is Emacs' built-in terminal emulator. Term runs a shell and understands
   many (but not all) terminal escape codes, so many TUI programs (like top or
   vim) will work. However, term's performance is inferior to standalone
   terminals, especially with large bursts of output.

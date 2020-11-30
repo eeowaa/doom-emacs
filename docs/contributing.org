@@ -5,7 +5,7 @@ Doom Emacs is an active and ongoing project, maintained mostly by a single
 person, but includes the efforts of 200 contributors and growing. There is no
 shortage of things that need doing; bugs that need stomping, features that need
 implementing, and documentation that needs documenting. If Doom's been useful to
-you, convert some caffiene into code; it'd be a huge help!
+you, convert some caffeine into code; it'd be a huge help!
 
 You are welcome to [[https://discord.gg/qvGgnVx][join us on our Discord server]], otherwise read on to learn how
 to contribute to our fine corner of the interwebs.
