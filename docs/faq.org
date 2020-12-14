@@ -453,7 +453,7 @@ You'll find [[file:contributing.org::*Conventions][an overview of Doom's code co
 
 ** What version of Doom am I running?
 The current version of Doom is displayed in the modeline on the dashboard. It
-can also be retrieved using ~M-x doom/version~ (bound to =SPC h d v= or =C-h d
+can also be retrieved using =M-x doom/version= (bound to =SPC h d v= or =C-h d
 v= by default) or ~bin/doom version~ on the command line.
 
 ** Is Discord the only option for interacting with your community?
@@ -715,7 +715,7 @@ display-line-numbers-type= (=<help>= is =SPC h= for evil users, =C-h=
 otherwise).
 
 *** Switching the style of line numbers (temporarily)
-Use ~M-x doom/toggle-line-numbers~ (bound to =SPC t l= by default) to cycle
+Use =M-x doom/toggle-line-numbers= (bound to =SPC t l= by default) to cycle
 through the available line number styles in the current buffer.
 
 e.g. =normal -> relative -> visual -> disabled -> normal=.
@@ -739,8 +739,8 @@ See =SPC h f custom-set-faces\!= (or =C-h f custom-set-faces\!=) for
 documentation on and examples of its use.
 
 #+begin_quote
-Other sources may recommend ~M-x customize~, ~M-x customize-themes~ or ~M-x
-customize-face~. *Do not use these commands.* Doom does not support them and
+Other sources may recommend =M-x customize=, =M-x customize-themes= or =M-x
+customize-face=. *Do not use these commands.* Doom does not support them and
 their settings could break any time.
 #+end_quote
 
@@ -773,8 +773,8 @@ tools for experienced Emacs users to skirt around it (most of the time):
 - On-the-fly evaluation won't work for all changes. e.g. Changing your ~doom!~
   block (i.e. the list of modules for Doom to enable).
 
-  But rather than running ~doom sync~ and restarting Emacs, Doom provides ~M-x
-  doom/reload~ for your convenience (bound to =SPC h r r= and =C-h r r=). This
+  But rather than running ~doom sync~ and restarting Emacs, Doom provides =M-x
+  doom/reload= for your convenience (bound to =SPC h r r= and =C-h r r=). This
   runs ~doom sync~, restarts the Doom initialization process and re-evaluates
   your personal config. However, this won't clear pre-existing state; Doom won't
   unload modules/packages that have already been loaded and it can't anticipate
@@ -911,7 +911,7 @@ core package. This may change one day, but not in the near future.
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 #+END_SRC
 
-Some window managers may not understand/work with =maximized= (or may not
+Some window managers may not understand/work with ~maximized~ (or may not
 produce the desired effect), in that case try ~fullboth~ or ~fullscreen~.
 
 ** How do I share/sync my config between multiple computers?
@@ -1106,7 +1106,7 @@ otherwise you'll get a bunch of squares and mismatched icons. When running ~doom
 install~, you will be asked whether you want these installed for you or not.
 
 If you did not accept or need to reinstall those fonts, MacOS and Linux users
-can install them with ~M-x all-the-icons-install-fonts~. Windows users will need
+can install them with =M-x all-the-icons-install-fonts=. Windows users will need
 to use this command to download the fonts somewhere, then they must install them
 manually (e.g. by double-clicking each file in explorer).
 
